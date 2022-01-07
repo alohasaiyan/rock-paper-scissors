@@ -2,8 +2,8 @@ function randomUpToThree() {
     return Math.floor(Math.random() * 3);
 }
 
-function computerPlay(n) {
-    switch (n) {
+function computerPlay() {
+    switch (randomUpToThree()) {
         case 0:
             return 'rock';
         case 1:
