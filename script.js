@@ -15,7 +15,7 @@ function computerPlay(n) {
 
 function playRound(playerSelection, computerSelection) {
 
-    const playerSelection = playerSelection.toLowerCase();
+    const playerInput = playerSelection.toLowerCase();
 
     const winMsg = `You win! ${playerSelection} beats ${computerSelection}`
     const loseMsg = `You lose! ${computerSelection} beat ${playerSelection}`
