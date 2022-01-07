@@ -1,3 +1,7 @@
+function randomUpToThree() {
+    return Math.floor(Math.random() * 3);
+}
+
 function computerPlay(n) {
     switch (n) {
         case 0:
