@@ -17,29 +17,54 @@ function playRound(playerSelection, computerSelection) {
 
     const playerInput = playerSelection.toLowerCase();
 
-    const winMsg = `You win! ${playerSelection} beats ${computerSelection}`
-    const loseMsg = `You lose! ${computerSelection} beat ${playerSelection}`
-    const drawMsg = `Draw! You both chose ${playerSelection}`
+    const winMsg = `You win! ${playerInput} beats ${computerSelection}`
+    const loseMsg = `You lose! ${computerSelection} beats ${playerInput}`
+    const drawMsg = `Draw! You both chose ${playerInput}`
 
-    if (playerSelection === computerSelection) {
+    if (playerInput === computerSelection) {
         return drawMsg;
-    } else if (playerSelection === 'rock') {
+    } else if (playerInput === 'rock') {
         if (computerSelection === 'paper') {
             return loseMsg;
         } else if (computerSelection === 'scissors') {
             return winMsg;
         }
-    } else if (playerSelection === 'paper') {
+    } else if (playerInput === 'paper') {
         if (computerSelection === 'scissors') {
             return loseMsg;
         } else if (computerSelection === 'rock') {
             return winMsg;
         }
-    } else if (playerSelection === 'scissors') {
+    } else if (playerInput === 'scissors') {
         if (computerSelection === 'rock') {
             return loseMsg;
         } else if (computerSelection === 'paper') {
             return winMsg;
         }
+    }
+}
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (i = 1; i <= 5; i++) {
+        const userInput = prompt('Rock, paper, scissors?');
+        const result = playRound(userInput, computerPlay());
+        console.log(result);
+        if (result.includes('win')) {
+            playerScore++;
+        } else if (result.includes('lose')) {
+            computerScore++;
+        } else if (result.includes('Draw')) {
+            ;
+        }
+    }
+    if (playerScore === computerScore) {
+        console.log(`Draw! Player: ${playerScore} Computer: ${computerScore}`);
+
+    } else if (playerScore > computerScore) {
+        console.log(`You won! Player: ${playerScore} Computer: ${computerScore}`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lost! Player: ${playerScore} Computer: ${computerScore}`)
     }
 }
